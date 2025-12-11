@@ -27,7 +27,10 @@
       color: var(--text-main);
       display: flex;
       justify-content: center;
-      padding: 48px 16px 64px;
+      align-items: flex-start;
+      padding: 56px 16px 72px;
+      position: relative;
+      min-height: 100vh;
     }
 
     .page {
@@ -36,6 +39,22 @@
       display: flex;
       flex-direction: column;
       gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: -32px;
+      background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.86)),
+        url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      border-radius: 28px;
+      opacity: 0.55;
+      filter: saturate(0.85);
+      z-index: 0;
+      box-shadow: 0 30px 60px rgba(10, 35, 66, 0.08);
+      pointer-events: none;
     }
 
     header {
@@ -46,17 +65,22 @@
       gap: 14px;
     }
 
-    .logo-placeholder {
-      width: 86px;
-      height: 86px;
+    .logo-floating {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 64px;
+      height: 64px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(10, 35, 66, 0.14), rgba(10, 35, 66, 0.06));
+      background: radial-gradient(circle at 30% 30%, rgba(10, 35, 66, 0.2), rgba(10, 35, 66, 0.08));
       border: 1px solid var(--border);
       display: grid;
       place-items: center;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
       letter-spacing: 0.04em;
+      z-index: 2;
+      box-shadow: 0 12px 26px rgba(10, 35, 66, 0.12);
     }
 
     h1 {
@@ -227,8 +251,8 @@
 </head>
 <body>
   <div class="page">
+    <div class="logo-floating" aria-label="Empire State Tags logo placeholder">EST</div>
     <header>
-      <div class="logo-placeholder" aria-label="Empire State Tags logo placeholder">EST</div>
       <div>
         <h1>Empire State Tags NYC</h1>
         <p class="subtitle">Out-of-State Registration Assistance for New York Drivers</p>
