@@ -612,7 +612,7 @@
           </div>
           <div>
             <div class="brand-text-main">Empire Tags NYC</div>
-            <div class="brand-text-sub">Out-of-state registration service</div>
+            <div class="brand-text-sub">Out-of-state registration for New York drivers</div>
           </div>
         </div>
         <div class="badge-ny">
@@ -628,8 +628,8 @@
             when New York gives you a hard time.
           </h1>
           <p class="hero-subtitle">
-            Fill out this secure form so we can process your tag and registration in a
-            different state. Our team will review your details and contact you shortly.
+            Fill out this secure form, we review your details, then contact you to move
+            forward with an out-of-state tag and registration.
           </p>
           <div class="hero-steps">
             <div class="hero-pill">① Submit vehicle & owner details</div>
@@ -685,9 +685,7 @@
                 placeholder="Enter your full legal name"
                 required
               />
-              <div class="field-hint">
-                Please provide your full name as it appears on your ID.
-              </div>
+              <div class="field-hint">Please provide your full name.</div>
             </div>
 
             <div class="small-row">
@@ -702,9 +700,7 @@
                   placeholder="(XXX) XXX-XXXX"
                   required
                 />
-                <div class="field-hint">
-                  We’ll call or text you if we need clarification.
-                </div>
+                <div class="field-hint">Please enter your phone number.</div>
               </div>
 
               <div class="field-group">
@@ -733,9 +729,7 @@
                 placeholder="17-character VIN"
                 required
               />
-              <div class="field-hint">
-                You can find this on your title, registration, or the dashboard by the windshield.
-              </div>
+              <div class="field-hint">Please enter the VIN of your vehicle.</div>
             </div>
 
             <div class="small-row">
@@ -750,6 +744,7 @@
                   placeholder="e.g. Black, White, Silver"
                   required
                 />
+                <div class="field-hint">What is the color of your vehicle?</div>
               </div>
 
               <div class="field-group">
@@ -765,6 +760,7 @@
                   placeholder="e.g. 68,500"
                   required
                 />
+                <div class="field-hint">Please enter the current mileage of your vehicle.</div>
               </div>
             </div>
 
@@ -777,15 +773,14 @@
                 <option value="1 year">1 year</option>
                 <option value="2 years">2 years</option>
               </select>
-              <div class="field-hint">
-                Choose how long you’d like the tag to be valid.
-              </div>
+              <div class="field-hint">Select the duration for the tag.</div>
             </div>
 
             <div class="field-group">
               <label>
                 Front Picture of Title <span class="required">*</span>
               </label>
+              <div class="field-hint">Please upload a picture of your vehicle's title.</div>
               <div class="file-input-wrapper">
                 <div class="file-input-inner">
                   <div class="file-text">
@@ -808,6 +803,7 @@
               <label>
                 Back Picture of Title <span class="required">*</span>
               </label>
+              <div class="field-hint">Please upload a picture of the back of your vehicle's title.</div>
               <div class="file-input-wrapper">
                 <div class="file-input-inner">
                   <div class="file-text">
@@ -830,6 +826,7 @@
               <label>
                 Picture of ID <span class="required">*</span>
               </label>
+              <div class="field-hint">Please upload a picture of your License/ID/Passport.</div>
               <div class="file-input-wrapper">
                 <div class="file-input-inner">
                   <div class="file-text">
@@ -859,6 +856,7 @@
                 name="notes"
                 placeholder="Anything else you would like us to know? (Special circumstances, deadlines, previous issues with NY DMV, etc.)"
               ></textarea>
+              <div class="field-hint">Anything else you would like us to know?</div>
             </div>
 
             <div class="submit-row">
