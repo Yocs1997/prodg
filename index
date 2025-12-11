@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Empire Tags NYC – Out-of-State Vehicle Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===========================
+       OG / SOCIAL PREVIEW AREA
+       Replace content below with your real info & OG images
+  ============================ -->
+  <!--
+    <meta property="og:title" content="Empire Tags NYC – Out-of-State Registration Help">
+    <meta property="og:description" content="We help New Yorkers get tags and registration in other states when NY gives you a hard time.">
+    <meta property="og:image" content="https://empiretagsnyc.com/path-to-your-og-image.jpg">
+    <meta property="og:url" content="https://empiretagsnyc.com/">
+    <meta name="twitter:card" content="summary_large_image">
+  -->
+
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-card: #0f172a;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.14);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --error: #f97373;
+      --success: #22c55e;
+      --ny-yellow: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px dashed var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-text-main {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-ny {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.2),
+        rgba(248, 250, 252, 0.03)
+      );
+    }
+
+    .hero {
+      border-radius: 24px;
+      padding: 20px 18px 18px;
+      background: linear-gradient(
+          145deg,
+          rgba(37, 99, 235, 0.3),
+          rgba(15, 23, 42, 0.8)
+        ),
+        radial-gradient(circle at top right, rgba(251, 191, 36, 0.35), transparent);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #cbd5f5;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight {
+      color: var(--ny-yellow);
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: #e5e7eb;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    .hero-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .hero-pill {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .ny-skyline {
+      position: absolute;
+      right: -40px;
+      bottom: -8px;
+      width: 260px;
+      height: 120px;
+      opacity: 0.22;
+      background:
+        linear-gradient(to top, rgba(15, 23, 42, 0.7), transparent 55%),
+        repeating-linear-gradient(
+          to right,
+          rgba(148, 163, 184, 0.5) 0,
+          rgba(148, 163, 184, 0.5) 1px,
+          transparent 1px,
+          transparent 8px
+        );
+      mask-image: linear-gradient(to top, transparent 0, black 30%, black 100%);
+      border-radius: 40px;
+      transform: skewX(-8deg);
+    }
+
+    .ny-skyline::before {
+      content: "";
+      position: absolute;
+      inset: 5% 12%;
+      border-radius: 48px;
+      border-bottom: 12px solid rgba(37, 99, 235, 0.7);
+      box-shadow: 0 0 36px rgba(37, 99, 235, 0.95);
+    }
+
+    .hero-og-placeholder {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 150px;
+      height: 80px;
+      border-radius: 18px;
+      border: 1px dashed rgba(226, 232, 240, 0.7);
+      background: rgba(15, 23, 42, 0.72);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      color: rgba(226, 232, 240, 0.9);
+    }
+
+    main {
+      margin-top: 26px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 22px;
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+      box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.7),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(22px);
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .badge-step {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #bfdbfe;
+      border: 1px solid rgba(37, 99, 235, 0.5);
+      white-space: nowrap;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    label span.required {
+      color: var(--error);
+      font-size: 12px;
+    }
+
+    .field-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      padding: 9px 10px;
+      font-size: 13px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.8);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .file-input-wrapper {
+      border-radius: 12px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .file-input-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .file-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .file-title {
+      font-size: 12px;
+    }
+
+    .file-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .file-input {
+      font-size: 11px;
+      max-width: 220px;
+    }
+
+    .small-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .small-row > .field-group {
+      flex: 1 1 140px;
+    }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 0;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #e5e7eb;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.45);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.04);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.5);
+    }
+
+    .submit-note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .status-message {
+      font-size: 12px;
+      margin-top: 6px;
+      min-height: 16px;
+    }
+
+    .status-success {
+      color: var(--success);
+    }
+
+    .status-error {
+      color: var(--error);
+    }
+
+    /* SIDEBAR / PAYMENT / GOOGLE SHEETS CARD */
+    .side-card-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .stripe-card {
+      border-radius: 18px;
+      border: 1px solid rgba(55, 65, 81, 0.85);
+      background: radial-gradient(
+          circle at top right,
+          rgba(37, 99, 235, 0.45),
+          transparent 60%
+        ),
+        #020617;
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stripe-chip {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 38px;
+      height: 24px;
+      border-radius: 9px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: linear-gradient(
+        135deg,
+        rgba(229, 231, 235, 0.9),
+        rgba(148, 163, 184, 0.8)
+      );
+      opacity: 0.85;
+    }
+
+    .stripe-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .stripe-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stripe-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(37, 99, 235, 0.8);
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+
+    .stripe-link span {
+      font-size: 13px;
+    }
+
+    /* GOOGLE SHEETS INTEGRATION INFO */
+    .integration-card {
+      border-radius: 18px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.82);
+      padding: 12px 12px 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .integration-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 6px;
+      padding: 3px 5px;
+      border: 1px solid rgba(51, 65, 85, 0.8);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-logo-slot {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo-placeholder {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px dashed var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .footer-text {
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding: 18px 12px 14px;
+      }
+      .hero-og-placeholder {
+        display: none; /* Less clutter on mobile */
+      }
+      .ny-skyline {
+        opacity: 0.16;
+        right: -60px;
+        width: 230px;
+      }
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="top-bar">
+        <div class="brand">
+          <div class="brand-logo-placeholder">
+            <!-- Top-left logo slot (e.g., small icon/logo) -->
+            <span>🚗</span>
+          </div>
+          <div>
+            <div class="brand-text-main">Empire Tags NYC</div>
+            <div class="brand-text-sub">Out-of-state registration service</div>
+          </div>
+        </div>
+        <div class="badge-ny">
+          <span>🗽</span> Serving New York drivers
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-kicker">Vehicle registration support</div>
+          <h1 class="hero-title">
+            Get your <span class="hero-highlight">out-of-state tag & registration</span>
+            when New York gives you a hard time.
+          </h1>
+          <p class="hero-subtitle">
+            Fill out this secure form so we can process your tag and registration in a
+            different state. Our team will review your details and contact you shortly.
+          </p>
+          <div class="hero-steps">
+            <div class="hero-pill">① Submit vehicle & owner details</div>
+            <div class="hero-pill">② Upload title & ID photos</div>
+            <div class="hero-pill">③ Complete payment</div>
+          </div>
+        </div>
+
+        <!-- OG / HERO IMAGE PLACEHOLDER BLOCK
+             Replace this with an actual hero image or banner if you want -->
+        <div class="hero-og-placeholder">
+          OG / Hero image area
+          <br />NYC + car / registration design
+        </div>
+
+        <!-- Abstract NY skyline / city plate shape -->
+        <div class="ny-skyline"></div>
+      </section>
+    </header>
+
+    <main>
+      <div class="layout">
+        <!-- ===========================
+             MAIN FORM
+        ============================ -->
+        <section class="card">
+          <div class="card-title-row">
+            <div>
+              <div class="card-title">Driver & Vehicle Information</div>
+              <div class="card-subtitle">Step 1 – Tell us about you and your vehicle</div>
+            </div>
+            <div class="badge-step">Step 1 of 2</div>
+          </div>
+
+          <form id="registration-form">
+            <!--
+              IMPORTANT (GOOGLE SHEETS):
+
+              This form is designed to be sent via JavaScript (fetch) to a Google Apps Script Web App,
+              which will then write the data into a Google Sheet.
+
+              See JavaScript at the bottom of this file (SCRIPT_URL and handleSubmit).
+            -->
+
+            <div class="field-group">
+              <label for="fullName">
+                Full Name <span class="required">*</span>
+              </label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                placeholder="Enter your full legal name"
+                required
+              />
+              <div class="field-hint">
+                Please provide your full name as it appears on your ID.
+              </div>
+            </div>
+
+            <div class="small-row">
+              <div class="field-group">
+                <label for="phone">
+                  Phone Number <span class="required">*</span>
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="(XXX) XXX-XXXX"
+                  required
+                />
+                <div class="field-hint">
+                  We’ll call or text you if we need clarification.
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="email">
+                  Email <span class="required">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="field-hint">Please provide your email address.</div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="vin">
+                Vehicle Identification Number (VIN) <span class="required">*</span>
+              </label>
+              <input
+                id="vin"
+                name="vin"
+                type="text"
+                placeholder="17-character VIN"
+                required
+              />
+              <div class="field-hint">
+                You can find this on your title, registration, or the dashboard by the windshield.
+              </div>
+            </div>
+
+            <div class="small-row">
+              <div class="field-group">
+                <label for="color">
+                  Color of Vehicle <span class="required">*</span>
+                </label>
+                <input
+                  id="color"
+                  name="color"
+                  type="text"
+                  placeholder="e.g. Black, White, Silver"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="mileage">
+                  Current Mileage <span class="required">*</span>
+                </label>
+                <input
+                  id="mileage"
+                  name="mileage"
+                  type="number"
+                  min="0"
+                  step="1"
+                  placeholder="e.g. 68,500"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="duration">
+                Duration for Tag <span class="required">*</span>
+              </label>
+              <select id="duration" name="duration" required>
+                <option value="">Select duration</option>
+                <option value="1 year">1 year</option>
+                <option value="2 years">2 years</option>
+              </select>
+              <div class="field-hint">
+                Choose how long you’d like the tag to be valid.
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>
+                Front Picture of Title <span class="required">*</span>
+              </label>
+              <div class="file-input-wrapper">
+                <div class="file-input-inner">
+                  <div class="file-text">
+                    <span class="file-title">Upload front of title</span>
+                    <span class="file-hint">Clear photo or scan (JPG, PNG, PDF).</span>
+                  </div>
+                  <input
+                    class="file-input"
+                    id="titleFront"
+                    name="titleFront"
+                    type="file"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>
+                Back Picture of Title <span class="required">*</span>
+              </label>
+              <div class="file-input-wrapper">
+                <div class="file-input-inner">
+                  <div class="file-text">
+                    <span class="file-title">Upload back of title</span>
+                    <span class="file-hint">Make sure all writing is readable.</span>
+                  </div>
+                  <input
+                    class="file-input"
+                    id="titleBack"
+                    name="titleBack"
+                    type="file"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>
+                Picture of ID <span class="required">*</span>
+              </label>
+              <div class="file-input-wrapper">
+                <div class="file-input-inner">
+                  <div class="file-text">
+                    <span class="file-title">Upload License / ID / Passport</span>
+                    <span class="file-hint">
+                      Front photo of your valid government-issued ID.
+                    </span>
+                  </div>
+                  <input
+                    class="file-input"
+                    id="idPicture"
+                    name="idPicture"
+                    type="file"
+                    accept="image/*,application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="notes">
+                Additional Notes
+              </label>
+              <textarea
+                id="notes"
+                name="notes"
+                placeholder="Anything else you would like us to know? (Special circumstances, deadlines, previous issues with NY DMV, etc.)"
+              ></textarea>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn-primary" type="submit">
+                <span>Submit information</span>
+                <span>➜</span>
+              </button>
+              <div class="submit-note">
+                By submitting, you confirm the information is accurate to the best of your knowledge.
+              </div>
+            </div>
+            <div id="form-status" class="status-message"></div>
+          </form>
+        </section>
+
+        <!-- ===========================
+             SIDE INFO: PAYMENT + GOOGLE SHEETS
+        ============================ -->
+        <aside class="side-card-section">
+          <section class="card stripe-card">
+            <div class="stripe-chip"></div>
+            <div class="stripe-title">Step 2 – Complete Payment</div>
+            <p class="stripe-text">
+              After submitting your information, please complete your payment so we can
+              start processing your out-of-state registration.
+            </p>
+            <a
+              class="stripe-link"
+              href="https://buy.stripe.com/cN228W8iz1d33VC28f"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>💳</span>
+              <span>Pay securely with Stripe</span>
+            </a>
+            <p class="stripe-text">
+              Be sure the name and vehicle details match what you entered on the form.
+            </p>
+          </section>
+
+          <section class="integration-card">
+            <div class="integration-title">Google Sheets Integration</div>
+            <p>
+              This page is prepared to send data to a Google Sheet using a Google Apps Script
+              Web App endpoint.
+            </p>
+            <ol>
+              <li>
+                Create a Google Sheet with your columns (<code>Timestamp</code>,
+                <code>Full Name</code>, <code>Phone</code>, etc.).
+              </li>
+              <li>
+                In the Sheet, go to <b>Extensions → Apps Script</b> and create a script that
+                accepts a POST request and writes rows to the sheet.
+              </li>
+              <li>
+                Deploy as a Web App and copy the Web App URL.
+              </li>
+              <li>
+                Paste that URL in the <code>SCRIPT_URL</code> constant in the JavaScript at the
+                bottom of this file.
+              </li>
+            </ol>
+            <p>
+              Look for this comment in the code:
+              <br /><code>// TODO: Paste your Google Apps Script Web App URL here</code>
+            </p>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-logo-slot">
+        <div class="footer-logo-placeholder">
+          <!-- Bottom logo slot – replace with your real logo image -->
+          <span>ET</span>
+        </div>
+        <div class="footer-text">
+          Space reserved for your main logo / brand mark.
+          <br />Empire Tags NYC &copy; <span id="year"></span>
+        </div>
+      </div>
+      <div class="footer-text">
+        Not affiliated with NY DMV. We assist New York drivers with
+        out-of-state registration solutions.
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===========================
+       GOOGLE SHEETS INTEGRATION JS
+       (front-end side)
+  ============================ -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // TODO: Paste your Google Apps Script Web App URL here
+    // Example: const SCRIPT_URL = "https://script.google.com/macros/s/ABC123.../exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
+    const form = document.getElementById("registration-form");
+    const statusElement = document.getElementById("form-status");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      statusElement.textContent = "";
+      statusElement.className = "status-message";
+
+      // Simple guard: check if SCRIPT_URL was updated
+      if (!SCRIPT_URL || SCRIPT_URL.includes("YOUR_SCRIPT_ID")) {
+        statusElement.textContent =
+          "Form is not yet connected to Google Sheets. Please contact the site owner.";
+        statusElement.classList.add("status-error");
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      // NOTE ABOUT FILES:
+      // FormData will include the file inputs (titleFront, titleBack, idPicture).
+      // On the Apps Script side, you'll need to read the file blobs from the request
+      // and either:
+      //  - Save them to Google Drive and store the Drive URL in the Sheet, or
+      //  - Store base64 or other reference.
+      //
+      // This code sends everything as multipart/form-data, which Apps Script can read.
+
+      try {
+        statusElement.textContent = "Submitting your information...";
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const resultText = await response.text();
+
+        // You can have Apps Script respond with JSON and parse it here if you like:
+        // const result = await response.json();
+
+        statusElement.textContent = "Thank you! Your information has been submitted.";
+        statusElement.classList.add("status-success");
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        statusElement.textContent =
+          "Something went wrong submitting the form. Please try again or contact us.";
+        statusElement.classList.add("status-error");
+      }
+    }
+
+    form.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>
