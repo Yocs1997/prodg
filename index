@@ -664,14 +664,10 @@
             <div class="badge-step">Step 1 of 2</div>
           </div>
 
-          <form id="registration-form">
+          <form id="registration-form" method="post" enctype="multipart/form-data">
             <!--
-              IMPORTANT (GOOGLE SHEETS):
-
-              This form is designed to be sent via JavaScript (fetch) to a Google Apps Script Web App,
-              which will then write the data into a Google Sheet.
-
-              See JavaScript at the bottom of this file (SCRIPT_URL and handleSubmit).
+              This form is submitted via fetch() to monday_submit.php, which creates an item on
+              Monday.com and uploads the attached files to their respective file columns.
             -->
 
             <div class="field-group">
@@ -950,15 +946,14 @@
   </div>
 
   <!-- ===========================
-       GOOGLE SHEETS INTEGRATION JS
+       MONDAY.COM INTEGRATION JS
        (front-end side)
   ============================ -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // TODO: Paste your Google Apps Script Web App URL here
-    // Example: const SCRIPT_URL = "https://script.google.com/macros/s/ABC123.../exec";
-    const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+    // Endpoint that receives the form data and sends it to Monday.com
+    const SUBMIT_URL = "./monday_submit.php";
 
     const form = document.getElementById("registration-form");
     const statusElement = document.getElementById("form-status");
@@ -968,40 +963,23 @@
       statusElement.textContent = "";
       statusElement.className = "status-message";
 
-      // Simple guard: check if SCRIPT_URL was updated
-      if (!SCRIPT_URL || SCRIPT_URL.includes("YOUR_SCRIPT_ID")) {
-        statusElement.textContent =
-          "Form is not yet connected to Google Sheets. Please contact the site owner.";
-        statusElement.classList.add("status-error");
-        return;
-      }
-
       const formData = new FormData(form);
-
-      // NOTE ABOUT FILES:
-      // FormData will include the file inputs (titleFront, titleBack, idPicture).
-      // On the Apps Script side, you'll need to read the file blobs from the request
-      // and either:
-      //  - Save them to Google Drive and store the Drive URL in the Sheet, or
-      //  - Store base64 or other reference.
-      //
-      // This code sends everything as multipart/form-data, which Apps Script can read.
 
       try {
         statusElement.textContent = "Submitting your information...";
-        const response = await fetch(SCRIPT_URL, {
+        const response = await fetch(SUBMIT_URL, {
           method: "POST",
           body: formData,
         });
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+        const result = await response.json().catch(() => null);
+
+        if (!response.ok || !result || result.result !== "success") {
+          const detail = result?.message
+            ? `Details: ${result.message}`
+            : `Status: ${response.status}`;
+          throw new Error(`Unable to submit form. ${detail}`);
         }
-
-        const resultText = await response.text();
-
-        // You can have Apps Script respond with JSON and parse it here if you like:
-        // const result = await response.json();
 
         statusElement.textContent = "Thank you! Your information has been submitted.";
         statusElement.classList.add("status-success");
@@ -1009,6 +987,7 @@
       } catch (error) {
         console.error(error);
         statusElement.textContent =
+          error?.message ||
           "Something went wrong submitting the form. Please try again or contact us.";
         statusElement.classList.add("status-error");
       }
