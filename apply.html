@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply | Tag Express</title>
+  <meta name="description" content="Submit your Tag Express intake to get same-day Virginia tags." />
+  <link rel="canonical" href="https://tagexpressva.com/apply" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="apply">
+  <header class="header">
+    <div class="container navbar">
+      <div class="brand">
+        <img src="assets/tag-express-logo.png" alt="Tag Express logo" />
+        <div>
+          <div>Tag Express</div>
+          <small data-i18n="hero.kicker">Same-day Virginia tags</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" data-page="index" data-i18n="nav.home">Home</a>
+        <a href="faq.html" data-page="faq" data-i18n="nav.faq">FAQ</a>
+        <a href="apply.html" data-page="apply" class="btn btn-primary" data-i18n="nav.apply">Apply</a>
+        <div class="lang-toggle">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">≡</button>
+    </div>
+    <div class="container mobile-menu" id="mobile-menu" data-open="false">
+      <a href="index.html" data-page="index" data-i18n="nav.home">Home</a>
+      <a href="faq.html" data-page="faq" data-i18n="nav.faq">FAQ</a>
+      <a href="apply.html" data-page="apply" data-i18n="nav.apply">Apply</a>
+      <div class="lang-toggle">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1 data-i18n="form.title">Apply for same-day Virginia tags</h1>
+      <p class="note" data-i18n="form.note">Not connected to backend yet.</p>
+    </section>
+
+    <section class="section">
+      <form id="apply-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="firstName" data-i18n="form.labels.firstName">First Name</label>
+            <input class="input" id="firstName" name="firstName" data-i18n-placeholder="form.placeholders.firstName" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="lastName" data-i18n="form.labels.lastName">Last Name</label>
+            <input class="input" id="lastName" name="lastName" data-i18n-placeholder="form.placeholders.lastName" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="form.labels.email">Email</label>
+            <input class="input" id="email" name="email" type="email" data-i18n-placeholder="form.placeholders.email" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="phone" data-i18n="form.labels.phone">Phone</label>
+            <input class="input" id="phone" name="phone" data-i18n-placeholder="form.placeholders.phone" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="street" data-i18n="form.labels.street">Street</label>
+            <input class="input" id="street" name="street" data-i18n-placeholder="form.placeholders.street" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="city" data-i18n="form.labels.city">City</label>
+            <input class="input" id="city" name="city" data-i18n-placeholder="form.placeholders.city" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="state" data-i18n="form.labels.state">State</label>
+            <input class="input" id="state" name="state" data-i18n-placeholder="form.placeholders.state" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="zip" data-i18n="form.labels.zip">ZIP</label>
+            <input class="input" id="zip" name="zip" data-i18n-placeholder="form.placeholders.zip" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="year" data-i18n="form.labels.year">Vehicle Year</label>
+            <input class="input" id="year" name="year" data-i18n-placeholder="form.placeholders.year" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="make" data-i18n="form.labels.make">Make</label>
+            <input class="input" id="make" name="make" data-i18n-placeholder="form.placeholders.make" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="model" data-i18n="form.labels.model">Model</label>
+            <input class="input" id="model" name="model" data-i18n-placeholder="form.placeholders.model" />
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="vin" data-i18n="form.labels.vin">VIN</label>
+            <input class="input" id="vin" name="vin" data-i18n-placeholder="form.placeholders.vin" />
+            <span class="error"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes" data-i18n="form.labels.notes">Notes</label>
+          <textarea id="notes" name="notes" data-i18n-placeholder="form.placeholders.notes"></textarea>
+          <span class="error"></span>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="license" data-i18n="form.labels.license">Driver's License</label>
+            <input class="file-input" type="file" id="license" name="license" accept=".pdf,.jpg,.jpeg,.png" />
+            <span class="file-hint">PDF, JPG, JPEG, PNG. Max 10MB.</span>
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="insurance" data-i18n="form.labels.insurance">Proof of Insurance</label>
+            <input class="file-input" type="file" id="insurance" name="insurance" accept=".pdf,.jpg,.jpeg,.png" />
+            <span class="file-hint">PDF, JPG, JPEG, PNG. Max 10MB.</span>
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="vehicleDoc" data-i18n="form.labels.vehicleDoc">Vehicle Document (Title/Bill of Sale/Registration)</label>
+            <input class="file-input" type="file" id="vehicleDoc" name="vehicleDoc" accept=".pdf,.jpg,.jpeg,.png" />
+            <span class="file-hint">PDF, JPG, JPEG, PNG. Max 10MB.</span>
+            <span class="error"></span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" data-i18n="form.submit">Submit intake</button>
+        <div id="success-banner" class="success-banner" style="display:none;" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <div class="modal" id="success-modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3 data-i18n="form.modalTitle">Submission received</h3>
+      <p data-i18n="form.modalBody">Thank you for trusting Tag Express. A specialist will review your documents and follow up.</p>
+      <button class="btn btn-outline" id="close-modal" data-i18n="form.close">Close</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="disclaimers">
+        <small data-i18n="footer.disclaimer1">Tag Express is a private service provider and is not a government agency.</small>
+        <small data-i18n="footer.disclaimer2">Processing times may vary based on documentation and eligibility.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
