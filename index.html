@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificación rápida</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="card-title">
+      <div class="card-header">
+        <p class="eyebrow">Seguro &amp; simple</p>
+        <h1 id="card-title">Verificación rápida</h1>
+        <p class="lede">Pega tu enlace de destino y confirma que no eres un robot.</p>
+      </div>
+
+      <form id="redirect-form" class="form" novalidate>
+        <label class="field-label" for="link-input">Pega aquí el enlace de destino</label>
+        <div class="input-row">
+          <input
+            id="link-input"
+            name="link"
+            type="url"
+            inputmode="url"
+            autocomplete="url"
+            placeholder="https://ejemplo.com"
+            aria-describedby="link-help link-error"
+            required
+          />
+        </div>
+        <p id="link-help" class="help-text">Solo se permiten enlaces que comiencen con http:// o https://.</p>
+        <p id="link-error" class="error-text" role="alert" aria-live="polite"></p>
+
+        <button id="confirm-btn" class="primary-btn" type="submit" disabled>
+          <span class="btn-label">No soy un robot</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
